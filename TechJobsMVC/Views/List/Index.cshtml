@@ -5,6 +5,7 @@
 
 <table class="centeredTable">
     <tr>
+        @*-----------------------columns found in ListController, ViewBag.columns = Column Choices Dictionary------------------------*@
         @foreach(var column in ViewBag.columns)
         {
             <th>@column.Value</th>
@@ -15,11 +16,14 @@
             //TODO #2: Complete the View Jobs By Category Table
         }
 
-        <td></td> @* Feel free to remove or modify this element if necessary. *@
+        <td>
+            <a asp-controller="List" asp-action="Jobs" asp-route-column="all" asp-route-value="All">View All</a>
+        </td> @* Feel free to remove or modify this element if necessary. *@
         @foreach (var category in ViewBag.tableChoices)
         {
             <td>
                 <ul>
+                    @*reference ListController and JobData.cs*@
                     @foreach (var item in category.Value)
                     {
                         <li>
