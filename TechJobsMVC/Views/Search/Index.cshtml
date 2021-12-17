@@ -9,11 +9,17 @@
             @foreach (var column in ViewBag.columns)
             {
                 <span>
-                    <input type="radio" name="searchType" id="@column.Key" value="@column.Key" checked="@column.Key == 'all'" />
+                    @if (ViewBag.searchType != null)
+                    {
+                        <input type="radio" name="searchType" id="@column.Key" value="@column.Key" checked="@column.Key.Equals(ViewBag.searchType)" />
+                    }
+                    else
+                    {
+                        <input type="radio" name="searchType" id="@column.Key" value="@column.Key" checked='@column.Key.Equals("all")' />
+                    }
                     <label for="@column.Key">@column.Value</label>
                 </span>
             }
-
         </p>
 
         <p>
@@ -28,6 +34,58 @@
 
     @{
         //TODO #4: Loop over the search results to display all job fields.
+    }
+    @*copy table created in Jobs.cshtml, create the table if the list "jobs"" is not empty, using foreach loop.  Iterate through each Job object 
+        added to the job List and uses the table to output each property of the Job.
+    *@
+
+    @if (ViewBag.jobs != null)
+    {
+        foreach (Job job in ViewBag.jobs)
+        {
+            <table class="job-listing">
+                <tr>
+                    <td>
+                        ID
+                    </td>
+                    <td>
+                        @job.Id
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        @job.Name
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Employer
+                    </td>
+                    <td>
+                        @job.Employer
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Location
+                    </td>
+                    <td>
+                        @job.Location
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Skill
+                    </td>
+                    <td>
+                        @job.CoreCompetency
+                    </td>
+                </tr>
+            </table>
+        }
     }
 
 </div>

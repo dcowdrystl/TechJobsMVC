@@ -5,7 +5,9 @@
     @{
         //TODO #1: Use a loop to display job results in a table.
     }
-    @*-------------------------------Reference JobData.cs/Jobs.cs for Job Object, List Controller for ViewBag------------------------------*@
+    @*-------------------------------Reference JobData.cs/Jobs.cs for Job Object, List Controller for ViewBag------------------------------
+        Iterate through each Job in list "job".  list "job" is created and turned into a viewbag in ListController.cs
+    *@
      @foreach (Job job in ViewBag.jobs)
     {
         <table class="job-listing">

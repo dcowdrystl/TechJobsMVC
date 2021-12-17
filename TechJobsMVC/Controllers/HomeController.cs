@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TechJobsMVC.Models;
 
+
+
 namespace TechJobsMVC.Controllers
 {
     public class HomeController : Controller
